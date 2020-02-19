@@ -1,0 +1,21 @@
+$sticky-width: 30rem;
+
+.head,
+.body {
+	border: 1px solid $gray;
+}
+
+.row {
+	position: relative;
+	display: flex;
+
+	.sticky {
+		position: sticky;
+		left: 0;
+		flex: 0 0 $sticky-width;
+	}
+
+	.data-group {
+		flex: 1 1 100%;
+	}
+}
