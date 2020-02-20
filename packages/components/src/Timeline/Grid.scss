@@ -1,21 +1,67 @@
 $sticky-width: 30rem;
+$border: 1px solid $silver;
 
-.head,
-.body {
-	border: 1px solid $gray;
+.grid {
+	border: $border;
+	display: flex;
 }
 
-.row {
-	position: relative;
+.header {
+	border-bottom: $border;
+	position: absolute;
+	top: 0;
+	width: 100%;
 	display: flex;
 
-	.sticky {
-		position: sticky;
-		left: 0;
-		flex: 0 0 $sticky-width;
+	.day {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-right: $border;
+		border-bottom: $border;
+		font-weight: bold;
 	}
 
-	.data-group {
-		flex: 1 1 100%;
+	.hour {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-right: $border;
+	}
+}
+
+.titles {
+	position: sticky;
+	flex: 0 0 28rem;
+	border-right: $border;
+
+	.title {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		padding: 0 $padding-normal;
+	}
+}
+
+.rows {
+	flex: 1 1 0;
+	position: relative;
+	overflow-x: auto;
+	padding: 2px 0;
+
+	.row {
+		position: absolute;
+
+		&:hover {
+			background: $wild-sand;
+		}
+	}
+
+	.data {
+		position: absolute;
+		background: green;
+		border-radius: 2px;
+		border: 0;
+		padding: 0;
 	}
 }
