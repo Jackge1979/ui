@@ -51,6 +51,7 @@ $border: 1px solid $silver;
 
 	.row {
 		position: absolute;
+		list-style: none;
 
 		&:hover {
 			background: $wild-sand;

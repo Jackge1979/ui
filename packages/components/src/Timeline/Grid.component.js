@@ -184,11 +184,12 @@ export default function Grid() {
 				{groups.map((group, groupIndex) => {
 					const top = `${groupIndex * rowHeight + headerHeight}rem`;
 					return (
-						<div
+						<ol
 							key={group.id}
 							className={theme.row}
 							style={{ top, height: rowHeightUnit, width: totalWidthUnit }}
 							data-group-index={groupIndex}
+							aria-label={group.label}
 						>
 							{group.items.map((item, itemIndex) => {
 								const id = item[idName];
@@ -199,7 +200,6 @@ export default function Grid() {
 								const { className = '', style = {}, ...props } = dataItemProps(item);
 								let dataBlock = (
 									<button
-										key={id}
 										className={`${theme.data} ${className}`}
 										style={{ ...style, left, top: dataTopUnit, height: dataHeightUnit, width }}
 										onClick={() => onClick(item)}
@@ -220,9 +220,9 @@ export default function Grid() {
 										</TooltipTrigger>
 									);
 								}
-								return dataBlock;
+								return <li key={id}>{dataBlock}</li>;
 							})}
-						</div>
+						</ol>
 					);
 				})}
 			</div>

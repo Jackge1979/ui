@@ -38,23 +38,20 @@ export function Default() {
 							: flowStatus === 'EXECUTION_SUCCESS'
 							? '#82bd41'
 							: '#236192';
-					const ariaLabel = `Status: ${flowStatus} - Flow name: ${flowName} - Start time: ${format(
-						new Date(startTimestamp),
-						'DD MMM YYYY hh:mm:ss',
-						locale,
-					)} - End time: ${format(new Date(finishTimestamp), 'DD MMM YYYY hh:mm:ss', locale)}`;
+					const ariaLabel = `Status: ${flowStatus}`;
 					return { style: { background }, 'aria-label': ariaLabel };
 				}}
 				dataItemTooltip={item => (
-					<div>
-						Status: {item.flowStatus}
-						<br />
-						Flow name: {item.flowName}
-						<br />
-						Start time: {format(new Date(item.startTimestamp), 'DD MMM YYYY hh:mm:ss', locale)}
-						<br />
-						End time: {format(new Date(item.finishTimestamp), 'DD MMM YYYY hh:mm:ss', locale)}
-					</div>
+					<dl>
+						<dt>Flow name:</dt>
+						<dd>{item.flowName}</dd>
+						<dt>Start time:</dt>
+						<dd>{format(new Date(item.startTimestamp), 'DD MMM YYYY hh:mm:ss', locale)}</dd>
+						<dt>End time:</dt>
+						<dd>{format(new Date(item.finishTimestamp), 'DD MMM YYYY hh:mm:ss', locale)}</dd>
+						<dt>Status:</dt>
+						<dd>{item.flowStatus}</dd>
+					</dl>
 				)}
 				onClick={action('onClick')}
 			>
