@@ -13,13 +13,12 @@ function useFilters(defaultFilters = []) {
 	const [filters, setFilters] = useState(defaultFilters);
 
 	const addFilters = filterDefs => {
-		setFilters(filters.concat(filterDefs));
+		setFilters(oldFilters => oldFilters.concat(filterDefs));
 	};
 
 	const removeFilters = filterIds => {
 		const toRemove = Array.isArray(filterIds) ? filterIds : [filterIds];
-		const newFilters = filters.filter(({ id }) => !toRemove.includes(id));
-		setFilters(newFilters);
+		setFilters(oldFilters => oldFilters.filter(({ id }) => !toRemove.includes(id)));
 	};
 
 	return {

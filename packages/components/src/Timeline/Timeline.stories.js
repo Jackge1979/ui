@@ -19,6 +19,8 @@ export default {
 export function Default() {
 	const { t } = useTranslation();
 	const locale = useMemo(() => ({ locale: getLocale(t) }), [t]);
+	const initialStart = new Date(2020, 1, 3);
+	const initialEnd = new Date(2020, 1, 5);
 	return (
 		<>
 			<IconsProvider />
@@ -57,6 +59,11 @@ export function Default() {
 			>
 				<Timeline.Toolbar>
 					<Timeline.Zoom />
+					<Timeline.DateFilter
+						id="date-filter"
+						initialStart={initialStart}
+						initialEnd={initialEnd}
+					/>
 				</Timeline.Toolbar>
 				<Timeline.Grid />
 			</Timeline>

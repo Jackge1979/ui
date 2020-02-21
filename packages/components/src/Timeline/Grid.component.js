@@ -10,7 +10,7 @@ import { useTimelineContext } from './context';
 import theme from './Grid.scss';
 
 const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000;
-const DEFAULT_DAY_LENGTH = 2000;
+const DEFAULT_DAY_LENGTH = 1500;
 const DEFAULT_HEIGHT = 3; // rem
 const DEFAULT_DATA_HEIGHT = 2; //rem
 const MIN_DATA_WIDTH = 3; // px
